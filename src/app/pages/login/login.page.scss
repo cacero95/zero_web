@@ -1,0 +1,43 @@
+@media (min-width:100x) {
+    .menu {
+        margin-top: 0;
+    }
+}
+
+@media (min-width:1100px) {
+    .menu {
+        margin-top: -100px;
+    }
+}
+
+@media (min-width:1300px) {
+    .menu {
+        margin-top: -200px;
+    }
+}
+
+@media (min-width:1500px) {
+    .menu {
+        margin-top: -300px;
+    }
+}
+
+@media (min-width:1800px) {
+    .menu {
+        margin-top: -400px;
+    }
+}
+
+.swiper-slide {
+    display: block;
+}
+
+ion-slide>h2 {
+    margin-top: 2.8rem;
+}
+
+ion-slide>img {
+    max-height: 50%;
+    max-width: 80%;
+    margin: 36px 0;
+}

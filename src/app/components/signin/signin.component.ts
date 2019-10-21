@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ModalController, ToastController } from '@ionic/angular';
 import { DbaService } from '../../services/dba.service';
 import { Usuario } from '../../models/usuario';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signin',
@@ -15,12 +16,13 @@ export class SigninComponent implements OnInit {
 
   constructor(private modal:ModalController,
     private dba:DbaService,
-    private toast:ToastController) { }
+    private toast:ToastController,
+    private router:Router) { }
 
   ngOnInit() {}
 
 
-  signIn(name:string, email:string, password:string){
+  async signIn(name:string, email:string, password:string){
     let tick = false;
     this.user = {
       name,
@@ -32,5 +34,23 @@ export class SigninComponent implements OnInit {
         tick = true;
       }
     }
+    if(tick){
+      let toast = await this.toast.create({
+        header:'Complete todos los campos',
+        duration:3000,
+        color:'danger'
+      });
+      toast.present();
+    }
+    else {
+      this.dba.signInUp(this.user).then((respuesta)=>{
+        if (respuesta == true){
+          this.router.navigate(['home']);
+        }
+      })
+    }
+  }
+  close(){
+    this.modal.dismiss();
   }
 }
