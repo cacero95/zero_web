@@ -1,0 +1,20 @@
+<ion-header>
+    <ion-toolbar color="light" mode="ios">
+        <ion-title>login</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-grid>
+        <ion-row class="ingresar">
+            <ion-icon name="mail"></ion-icon>
+            <ion-input [(ngModel)]="user.mail" type="email" placeholder="mail"></ion-input>
+        </ion-row>
+        <ion-row class="ingresar">
+            <ion-icon name="key"></ion-icon>
+            <ion-input [(ngModel)]="user.password" type="password" placeholder="password"></ion-input>
+        </ion-row>
+    </ion-grid>
+    <ion-button (click)="entrar()" shape="round" expand="block">Entrar</ion-button>
+    <ion-button (click)="registrar()" expand="block" color="primary" fill="clear">Haven't account? Sign in</ion-button>
+</ion-content>
